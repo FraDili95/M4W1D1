@@ -196,9 +196,213 @@
 //  Ignora punteggiatura e spazi e ricordate di rendere la stringa tutta in minuscolo. 
 //  Se le due parole sono anagrammi, ritorna `true`, altrimenti ritorna `false`.
 
-function checkAnagrams ( string1, string2 ){
 
-    for( let i=0; i < string1.length; i++ ){
-        
+// function checkAnagrams ( string1, string2 ){
+
+//     let counter, counterCompare, flag = true;
+//     for( let i=0; i < string1.length && flag === true; i++ ){
+//         counter = 0;
+//         counterCompare = 0;
+  
+//         for( let n=0; n < string2.length; n++ ){
+//             if( string1[i] === string1[n] ){
+//                 counter++;
+//             }
+//             if( string1[i] === string2[n]){
+//                 counterCompare++;
+//             }
+//         }//fine for interno
+//         if( counter !== counterCompare ){
+//              flag = false;
+//              }
+     
+//     }//fine ultimo for
+//     if( flag ){
+//         return "anagrammi!";
+//     }else{
+//         return "non sono anagrammi!";
+//     }
+// }
+
+// console.log( checkAnagrams( "roma", "amor"));
+
+//-----------------------------------------------------------------//
+//-----------------------------------------------------------------//
+// 4.EXTRA Partendo da una lista di possibili anagrammi e da una parola (entrambi passati come parametri), ritorna un nuovo array contenente tutti
+// nagrammi corretti della parola data.
+// function palindroma( stringa ){
+//     let flag = true, x;
+//         for( let i = 0; i < stringa.length; i++ ){
+//             x = stringa.length - i - 1;
+//             if( stringa[i] !== stringa[x] ){
+//                 flag = false;
+//             }
+//         }
+//    return flag;
+// }
+
+// console.log( palindroma( "annaz" ));
+//-----------------------------------------------------------------//
+//-----------------------------------------------------------------//
+
+// 5. Partendo da un numero intero (dai parametri) ritorna un numero che contenga le stesse cifre, ma in ordine contrario. Es. 189 ⇒ 981
+
+// function inversione( intero ){
+//     let inverso = [];
+//     let x;
+//     while( intero > 0 ){
+//         x = intero % 10;
+//         inverso.push( String(x) );
+//         intero = parseInt( intero / 10 );
+//     } 
+//     inverso = inverso.join("");
+//     return parseInt(inverso);
+// }
+
+// console.log( typeof(inversione(189)));
+//-----------------------------------------------------------------//
+//-----------------------------------------------------------------//
+//6
+// function downchairs( x ){
+//    let ramo=[];
+//     for( let i = 1; i <= x; i++ ){//determina quanti rami ci sono 
+//         for( y = i; y > 0; y-- ){//determima quante foglie ci sono
+//             ramo.push("#");//aggiunge foglie
+//         }
+//         ramo = ramo.join("");//unisce il tutto
+//         console.log(ramo);//stampo
+//         ramo = [];//pulisco il ramo
+//     }
+// }
+
+// downchairs( 5 );
+//-----------------------------------------------------------------//
+//-----------------------------------------------------------------//
+// 7. Crea una funzione che, data una stringa come parametro, ritorni la stessa stringa, ma al contrario. Es. "Ciao" **** "
+//  function reverse( word ){
+//      word = word.split("");
+//      word = word.reverse();
+//      return word.join("");
+//  }
+// //oppureee
+// function reverseTwo( word ){
+//     let reverse = [];
+//     for( i = word.length-1; i >= 0; i-- ){
+//         reverse.push(word[i]);
+//     }
+//     reverse = reverse.join(""); 
+//     return reverse;
+// }
+
+// console.log(reverseTwo("canguro"));
+// console.log(reverse("canguro"));
+//-----------------------------------------------------------------//
+//-----------------------------------------------------------------//
+// 8. Crea una funzione che accetti un array e un numero Y come parametro. Dividi l'array in sotto-array aventi lunghezza Y.
+// Es. array: [1, 2, 3, 4], y: 2 [C 1, 2], [3, 4]]
+// array: [1, 2, 3, 4, 5], y: 4 [L 1, 2, 3, 4], [5]]
+// let test= [1,2,3,4,5,6,7,8];
+// function dividiArray (array, y){
+//     let newArray = [];//nuovo array contenitore mini array
+//     while( array.length > 0 ){//finchè la lunghezza di array è positiva
+//         let tmp = array.slice(0,y);//mini array da creare con porzioni da y
+//         newArray.push(tmp);//ci pusho dentro i mini array creati
+//         for(let i=y; i>0; i--){ //tolgo i mini array da quello originale
+//             array.shift();
+//         }
+//         tmp = [];//azzero il temporaneo alla fine di ogni ciclo
+//     }
+//     return newArray;//ritorno cio che ho creato
+// }
+
+// console.log( dividiArray( test, 4) );
+//-----------------------------------------------------------------//
+//-----------------------------------------------------------------//
+// 9. Scrivi una funzione che accetti un numero positivo X come parametro. La funzione dovrebbe stampare a console una "piramide" create con il
+// carattere "#" e avente X strati.
+//  function piramide( x ){
+//     let ramo=[], j=0;
+//      for( let i = 1; i <= x; i++ ){//determina quanti rami ci sono 
+//         for( y = x-i; y > 0; y-- ){//determima quante foglie ci sono
+//             ramo.push(" ");//aggiunge spazi
+//         }
+//          for( y = i+j; y > 0; y-- ){//determima quante foglie ci sono
+//              ramo.push("#");//aggiunge foglie
+//          }
+//          j++;
+//          ramo = ramo.join("");//unisce il tutto
+//          console.log(ramo);//stampo
+//          ramo = [];//pulisco il ramo
+//      }
+//  }
+
+//  piramide(15);
+// IO. Scrivi una funzione che accetti un intero N e ritorni una matrice a spirale NxN:
+// 2, 3, 13, 14, 16, 15, 9, 8, 7]]
+//-----------------------------------------------------------------//
+//-----------------------------------------------------------------//
+
+
+function createMatrix(rows, cols) {
+    let matrix = []; // Inizializza la matrice come un array vuoto
+
+    for (let i = 0; i < rows; i++) {
+        // Per ogni riga, aggiungi un nuovo array vuoto
+        matrix.push(new Array(cols).fill(0)); // Crea una riga con "cols" colonne e riempi con zeri
     }
+
+    return matrix;
 }
+
+
+function spiralMatrix( dimension ){
+   let Matrix = createMatrix(dimension, dimension);
+   let counterNum = 0, direction = 1;
+   const RIGHT = 1, BOTTOM = 2, LEFT = 3, TOP = 4; //DIREZIONI COSTANTI
+   let globalCounterPosition = 0;
+   while( counterNum < dimension*dimension){//finche il conteggio dei numeri non raggiunge N*N
+   
+    for( let i = 0; i < 4; i++ ){
+        //DX
+        if( direction === RIGHT ){//se va a destra
+                for( x = globalCounterPosition; x < dimension-globalCounterPosition; x++ ){
+                    counterNum++;//continuo il conteggio
+                    Matrix[globalCounterPosition][x] = counterNum;//assegno nella posizione giusta
+                }
+        }
+        //BTM
+        if( direction === BOTTOM ){//se va verso il basso
+                for( x = 0 + globalCounterPosition + 1; x < dimension - globalCounterPosition; x++ ){
+                    counterNum++;//continuo il conteggio
+                    Matrix[x][dimension-1-globalCounterPosition] = counterNum;//assegno nella posizione giusta
+                }                
+        }
+        //SX
+        if( direction === LEFT ){//se va verso sinistra
+                for( x = dimension - 2 - globalCounterPosition;  x >= 0 + globalCounterPosition; x-- ){
+                    counterNum++;//continuo il conteggio
+                    Matrix[dimension-1-globalCounterPosition][x] = counterNum;//assegno nella posizione giusta
+                }
+        }
+        //TOP
+        if( direction === TOP ){//se va verso il basso
+            for( x = dimension - 2 - globalCounterPosition; x >= 1 + globalCounterPosition; x-- ){
+                counterNum++;//continuo il conteggio
+                Matrix[x][0 + globalCounterPosition] = counterNum;//assegno nella posizione giusta
+            }
+
+        }
+        //incremento direzione
+        if(direction < 4){
+            direction++;
+        }else{
+            direction = 1;
+        }   
+    }//fine for
+
+   globalCounterPosition++;//aggiornamento posizione ogni 4 direzioni
+}//fine di while
+return Matrix;
+}
+   
+console.log( spiralMatrix(15) );
